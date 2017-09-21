@@ -1,0 +1,26 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/interview_info
+    username: root
+    password: root
+#    platform: mysql
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+    show-sql: true
+    
+  
+    hibernate:
+      ddl-auto: update
+#  cache:
+#    ehcache:
+#      config: classpath:ehcache.xml
+
+server:
+  port: 8001
+  
+
+  
+    
