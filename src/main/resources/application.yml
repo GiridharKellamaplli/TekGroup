@@ -3,8 +3,8 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/interview_info
     username: root
-    password: root
-#    platform: mysql
+    password: admin
+
   jpa:
     properties:
       hibernate:
@@ -13,10 +13,7 @@ spring:
     
   
     hibernate:
-      ddl-auto: update
-#  cache:
-#    ehcache:
-#      config: classpath:ehcache.xml
+      ddl-auto: create-drop
 
 server:
   port: 8001

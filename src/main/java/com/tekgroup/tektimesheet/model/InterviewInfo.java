@@ -1,7 +1,8 @@
 package com.tekgroup.tektimesheet.model;
 
+import java.sql.Date;
+import java.sql.Time;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,45 +10,42 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="interview_info")
+@Table(name = "interview")
 public class InterviewInfo {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue()
 	private Integer id;
+//	@Column(name = "date", nullable = false)
 	private LocalDate date;
-	// private LocalTime startTime;
-	private LocalDateTime startTime;
-	private LocalDateTime endTime;
+//	@Column(name = "startTime", nullable = false)
+	private Time startTime;
+//	@Column(name = "endTime", nullable = false)
+	private Time endTime;
+//	@Column(name = "name", nullable=false)
 	private String name;
+//	@Column(name = "mode", nullable=false)
 	private String mode;
-	private String with;
-	private Byte round;
-	private boolean isRecording;
+//	@Column(name = "client", nullable=false)
+	private String client;
+	private int round;
+	private String recording;
 
 	public InterviewInfo() {
 
 	}
 
-	public InterviewInfo(LocalDate date, LocalDateTime startTime, LocalDateTime endTime, String name, String mode,
-			String with, Byte round, boolean isRecording) {
+	public InterviewInfo(LocalDate date, Time startTime, Time endTime, String name, String mode, String client, int round,
+			String recording) {
 		super();
 		this.date = date;
 		this.startTime = startTime;
 		this.endTime = endTime;
 		this.name = name;
 		this.mode = mode;
-		this.with = with;
+		this.client = client;
 		this.round = round;
-		this.isRecording = isRecording;
-	}
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
+		this.recording = recording;
 	}
 
 	public LocalDate getDate() {
@@ -58,19 +56,19 @@ public class InterviewInfo {
 		this.date = date;
 	}
 
-	public LocalDateTime getStartTime() {
+	public Time getStartTime() {
 		return startTime;
 	}
 
-	public void setStartTime(LocalDateTime startTime) {
+	public void setStartTime(Time startTime) {
 		this.startTime = startTime;
 	}
 
-	public LocalDateTime getEndTime() {
+	public Time getEndTime() {
 		return endTime;
 	}
 
-	public void setEndTime(LocalDateTime endTime) {
+	public void setEndTime(Time endTime) {
 		this.endTime = endTime;
 	}
 
@@ -90,37 +88,35 @@ public class InterviewInfo {
 		this.mode = mode;
 	}
 
-	public String getWith() {
-		return with;
+	public String getClient() {
+		return client;
 	}
 
-	public void setWith(String with) {
-		this.with = with;
+	public void setClient(String client) {
+		this.client = client;
 	}
 
-	public Byte getRound() {
+	public int getRound() {
 		return round;
 	}
 
-	public void setRound(Byte round) {
+	public void setRound(int round) {
 		this.round = round;
 	}
 
-	public boolean isRecording() {
-		return isRecording;
+	public String getRecording() {
+		return recording;
 	}
 
-	public void setRecording(boolean isRecording) {
-		this.isRecording = isRecording;
+	public void setRecording(String recording) {
+		this.recording = recording;
 	}
 
 	@Override
 	public String toString() {
 		return "InterviewInfo [id=" + id + ", date=" + date + ", startTime=" + startTime + ", endTime=" + endTime
-				+ ", name=" + name + ", mode=" + mode + ", with=" + with + ", round=" + round + ", isRecording="
-				+ isRecording + "]";
+				+ ", name=" + name + ", mode=" + mode + ", with=" + client + ", round=" + round + ", isRecording="
+				+ recording + "]";
 	}
-	
-	
 
 }

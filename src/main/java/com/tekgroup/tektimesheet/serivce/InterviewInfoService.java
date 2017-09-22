@@ -1,18 +1,18 @@
 package com.tekgroup.tektimesheet.serivce;
 
-import java.time.LocalDateTime;
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 import com.tekgroup.tektimesheet.model.InterviewInfo;
 
 public interface InterviewInfoService {
 	
-	public List<InterviewInfo> findByName(String name);
 	
-	public InterviewInfo saveOrUpdate(InterviewInfo interviewInfo);
+	public boolean save(InterviewInfo interviewInfo);
 	
-	public List<InterviewInfo> findAllInterviews();
+	public List<InterviewInfo> findAll();
 	
-	public int deleteByNameAndSlot(String name, LocalDateTime startTime);
+	public List<InterviewInfo> findTodaySlots(LocalDate date);
 
 }
