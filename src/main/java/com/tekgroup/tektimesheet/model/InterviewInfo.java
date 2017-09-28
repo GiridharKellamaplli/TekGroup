@@ -1,6 +1,5 @@
 package com.tekgroup.tektimesheet.model;
 
-import java.sql.Date;
 import java.sql.Time;
 import java.time.LocalDate;
 
@@ -16,36 +15,27 @@ public class InterviewInfo {
 	@Id
 	@GeneratedValue()
 	private Integer id;
-//	@Column(name = "date", nullable = false)
 	private LocalDate date;
-//	@Column(name = "startTime", nullable = false)
 	private Time startTime;
-//	@Column(name = "endTime", nullable = false)
 	private Time endTime;
-//	@Column(name = "name", nullable=false)
 	private String name;
-//	@Column(name = "mode", nullable=false)
 	private String mode;
-//	@Column(name = "client", nullable=false)
 	private String client;
+	private String vendor;
 	private int round;
-	private String recording;
+	private boolean recording;
+	private boolean isCancelled;
 
 	public InterviewInfo() {
 
 	}
 
-	public InterviewInfo(LocalDate date, Time startTime, Time endTime, String name, String mode, String client, int round,
-			String recording) {
-		super();
-		this.date = date;
-		this.startTime = startTime;
-		this.endTime = endTime;
-		this.name = name;
-		this.mode = mode;
-		this.client = client;
-		this.round = round;
-		this.recording = recording;
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public LocalDate getDate() {
@@ -96,6 +86,14 @@ public class InterviewInfo {
 		this.client = client;
 	}
 
+	public String getVendor() {
+		return vendor;
+	}
+
+	public void setVendor(String vendor) {
+		this.vendor = vendor;
+	}
+
 	public int getRound() {
 		return round;
 	}
@@ -104,19 +102,43 @@ public class InterviewInfo {
 		this.round = round;
 	}
 
-	public String getRecording() {
+	public boolean getRecording() {
 		return recording;
 	}
 
-	public void setRecording(String recording) {
+	public void setRecording(boolean recording) {
 		this.recording = recording;
+	}
+
+	public boolean isCancelled() {
+		return isCancelled;
+	}
+
+	public void setCancelled(boolean isCancelled) {
+		this.isCancelled = isCancelled;
+	}
+
+	public InterviewInfo(Integer id, LocalDate date, Time startTime, Time endTime, String name, String mode,
+			String client, String vendor, int round, boolean recording, boolean isCancelled) {
+		super();
+		this.id = id;
+		this.date = date;
+		this.startTime = startTime;
+		this.endTime = endTime;
+		this.name = name;
+		this.mode = mode;
+		this.client = client;
+		this.vendor = vendor;
+		this.round = round;
+		this.recording = recording;
+		this.isCancelled = isCancelled;
 	}
 
 	@Override
 	public String toString() {
 		return "InterviewInfo [id=" + id + ", date=" + date + ", startTime=" + startTime + ", endTime=" + endTime
-				+ ", name=" + name + ", mode=" + mode + ", with=" + client + ", round=" + round + ", isRecording="
-				+ recording + "]";
+				+ ", name=" + name + ", mode=" + mode + ", client=" + client + ", vendor=" + vendor + ", round=" + round
+				+ ", recording=" + recording + ", isCancelled=" + isCancelled + "]";
 	}
 
 }
