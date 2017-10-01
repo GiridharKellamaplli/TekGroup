@@ -12,8 +12,8 @@ spring:
     show-sql: true
     
   
-logging:
-  file: /tmp/logs/myapplication.log
+#logging:
+#  file: /tmp/logs/myapplication.log
 
   
 
