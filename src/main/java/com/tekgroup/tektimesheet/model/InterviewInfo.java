@@ -7,6 +7,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "interview")
@@ -15,12 +21,16 @@ public class InterviewInfo {
 	@Id
 	@GeneratedValue()
 	private Integer id;
+	
 	private LocalDate date;
 	private Time startTime;
 	private Time endTime;
+	
 	private String name;
 	private String mode;
+	
 	private String client;
+	
 	private String vendor;
 	private int round;
 	private boolean recording;
