@@ -1,9 +1,12 @@
 package com.tekgroup.tektimesheet.controller;
 
+import java.security.Principal;
 import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -36,8 +39,14 @@ public class InterviewInfoController {
 	}
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public ResponseEntity<List<InterviewInfo>> getSlots() {
+	public ResponseEntity<List<InterviewInfo>> getSlots(HttpServletRequest request) {
 		System.out.println("In getslots");
+		
+		Principal principal = request.getUserPrincipal();
+		String user = principal.getName();
+		System.out.println("userid $$$$$$$$$$$$$$$$$$$$$$"+ user);
+		List<InterviewInfo> interviewByUserName = service.findByUserName(user);
+		System.out.println(interviewByUserName);
 		List<InterviewInfo> interviews = service.findAll();
 		return new ResponseEntity<List<InterviewInfo>>(interviews, HttpStatus.OK);
 	}

@@ -13,6 +13,8 @@ public interface InterviewInfoService {
 
 	public List<InterviewInfo> findByDate(LocalDate date);
 
+	public List<InterviewInfo> findByUserName(String name);
+	
 	public InterviewInfo findById(int id);
 	
 	public void delete(int id);

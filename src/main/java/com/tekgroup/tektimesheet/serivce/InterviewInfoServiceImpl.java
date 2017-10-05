@@ -77,6 +77,12 @@ public class InterviewInfoServiceImpl implements InterviewInfoService {
 	}
 
 	@Override
+	public List<InterviewInfo> findByUserName(String name) {
+		// TODO Auto-generated method stub
+		return interviewInfoRepository.findByName(name);
+	}
+
+	@Override
 	public List<InterviewInfo> findAll() {
 		return interviewInfoRepository.findAllByOrderByDateDescStartTimeAsc();
 	}

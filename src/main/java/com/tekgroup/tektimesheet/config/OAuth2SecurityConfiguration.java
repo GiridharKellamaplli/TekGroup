@@ -27,13 +27,15 @@ public class OAuth2SecurityConfiguration extends WebSecurityConfigurerAdapter {
      
     @Autowired
     public void globalUserDetails(AuthenticationManagerBuilder auth) throws Exception {
+    	System.out.println("global user detils metho called...");
         auth.inMemoryAuthentication()
-        .withUser("bill").password("abc123").roles("ADMIN").and()
-        .withUser("bob").password("abc123").roles("USER");
+        .withUser("shashank").password("abc123").roles("ADMIN").and()
+        .withUser("Ajay").password("abc123").roles("USER");
     }
  
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+    	System.out.println("configure method in OAuth2SeucityConfigure class called...");
         http
         .csrf().disable()
         .anonymous().disable()
@@ -56,6 +58,7 @@ public class OAuth2SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Bean
     @Autowired
     public TokenStoreUserApprovalHandler userApprovalHandler(TokenStore tokenStore){
+    	System.out.println("configure OAuth2SeucityConfigure class called..");
         TokenStoreUserApprovalHandler handler = new TokenStoreUserApprovalHandler();
         handler.setTokenStore(tokenStore);
         handler.setRequestFactory(new DefaultOAuth2RequestFactory(clientDetailsService));
@@ -66,6 +69,7 @@ public class OAuth2SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Bean
     @Autowired
     public ApprovalStore approvalStore(TokenStore tokenStore) throws Exception {
+    	System.out.println("confOAuth2SeucityConfigure class called..");
         TokenApprovalStore store = new TokenApprovalStore();
         store.setTokenStore(tokenStore);
         return store;

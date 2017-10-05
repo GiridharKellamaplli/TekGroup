@@ -19,6 +19,7 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
  
     @Override
     public void configure(HttpSecurity http) throws Exception {
+    	System.out.println("call to resourceServerConfiguration...");
         http.
         anonymous().disable()
         .requestMatchers().antMatchers("/interview/**")
