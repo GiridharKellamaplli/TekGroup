@@ -1,9 +1,9 @@
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://tektimesheet.cgdxybxvspry.us-east-1.rds.amazonaws.com:3306/interview_info
-    username: tektimesheet
-    password: tektimesheet
+    url: jdbc:mysql://tektimesheet.c0cypay7orlu.us-west-2.rds.amazonaws.com:3306/interview_info
+    username: gkellampalli
+    password: gkellampalli
 
   jpa:
     properties:
@@ -11,11 +11,13 @@ spring:
         dialect: org.hibernate.dialect.MySQL5Dialect
     show-sql: true
     
-  
+    hibernate:
+      ddl-auto: update
+      
+
 #logging:
 #  file: /tmp/logs/myapplication.log
-#Test-Jenkins build
-#Test-Jenkins build
+
 
 
   

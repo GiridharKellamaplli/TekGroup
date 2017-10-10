@@ -68,16 +68,17 @@ public class InterviewInfoController {
 				return new ResponseEntity<Void>(HttpStatus.OK);
 			}
 
-			interviewInfo.setDate(updatedInfo.getDate());
-			interviewInfo.setStartTime(updatedInfo.getStartTime());
-			interviewInfo.setEndTime(updatedInfo.getEndTime());
-			interviewInfo.setName(updatedInfo.getName());
-			interviewInfo.setMode(updatedInfo.getMode());
-			interviewInfo.setClient(updatedInfo.getClient());
-			interviewInfo.setVendor(updatedInfo.getVendor());
-			interviewInfo.setRound(updatedInfo.getRound());
-			interviewInfo.setRecording(updatedInfo.getRecording());
-			interviewInfo.setCancelled(updatedInfo.isCancelled());
+			interviewInfo = updatedInfo;
+			// interviewInfo.setDate(updatedInfo.getDate());
+			// interviewInfo.setStartTime(updatedInfo.getStartTime());
+			// interviewInfo.setEndTime(updatedInfo.getEndTime());
+			// interviewInfo.setName(updatedInfo.getName());
+			// interviewInfo.setMode(updatedInfo.getMode());
+			// interviewInfo.setClient(updatedInfo.getClient());
+			// interviewInfo.setVendor(updatedInfo.getVendor());
+			// interviewInfo.setRound(updatedInfo.getRound());
+			// interviewInfo.setRecording(updatedInfo.getRecording());
+			// interviewInfo.setCancelled(updatedInfo.isCancelled());
 			service.save(interviewInfo);
 			return new ResponseEntity<Void>(HttpStatus.OK);
 		}

@@ -32,7 +32,7 @@
 			<artifactId>tomcat-embed-jasper</artifactId>
 			<version>9.0.0.M26</version>
 		</dependency>
-		<dependency>
+		<!-- <dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 			<version>1.4.187</version>
@@ -57,7 +57,7 @@
 			<groupId>org.springframework.security.oauth</groupId>
 			<artifactId>spring-security-oauth2</artifactId>
 			<version>${springsecurityoauth2.version}</version>
-		</dependency>
+		</dependency> -->
 
 		<dependency>
 			<groupId>com.fasterxml.jackson.datatype</groupId>
