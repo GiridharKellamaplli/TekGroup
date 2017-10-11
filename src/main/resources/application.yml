@@ -1,25 +1,25 @@
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/interview_info
-    username: root
-    password: root
-#    platform: mysql
+    url: jdbc:mysql://tektimesheet.c0cypay7orlu.us-west-2.rds.amazonaws.com:3306/interview_info
+    username: gkellampalli
+    password: gkellampalli
+
   jpa:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL5Dialect
     show-sql: true
     
-  
     hibernate:
       ddl-auto: update
-#  cache:
-#    ehcache:
-#      config: classpath:ehcache.xml
+      
 
-server:
-  port: 8001
+#logging:
+#  file: /tmp/logs/myapplication.log
+
+
+
   
 
   

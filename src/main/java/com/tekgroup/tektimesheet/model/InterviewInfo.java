@@ -1,7 +1,8 @@
 package com.tekgroup.tektimesheet.model;
 
+import java.sql.Time;
+import java.time.DayOfWeek;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,37 +10,64 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="interview_info")
+@Table(name = "interview")
 public class InterviewInfo {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue()
 	private Integer id;
-	private LocalDate date;
-	// private LocalTime startTime;
-	private LocalDateTime startTime;
-	private LocalDateTime endTime;
+	private LocalDate interviewLocalDate;
+	private String interviewDate;
+	private Time startTime;
+	private Time endTime;
+	private String startTimeText;
+	private String endTimeText;
+	private DayOfWeek dayOfWeek;
 	private String name;
 	private String mode;
-	private String with;
-	private Byte round;
-	private boolean isRecording;
+	private String client;
+	private String vendor;
+	private int round;
+	private boolean recording;
+	private boolean isCancelled;
 
 	public InterviewInfo() {
 
 	}
 
-	public InterviewInfo(LocalDate date, LocalDateTime startTime, LocalDateTime endTime, String name, String mode,
-			String with, Byte round, boolean isRecording) {
-		super();
-		this.date = date;
+	public InterviewInfo(LocalDate interviewLocalDate, String interviewDate, Time startTime, Time endTime,
+			String startTimeText, String endTimeText, DayOfWeek dayOfWeek, String name, String mode, String client,
+			String vendor, int round, boolean recording, boolean isCancelled) {
+		this.interviewLocalDate = interviewLocalDate;
+		this.interviewDate = interviewDate;
 		this.startTime = startTime;
 		this.endTime = endTime;
+		this.startTimeText = startTimeText;
+		this.endTimeText = endTimeText;
+		this.dayOfWeek = dayOfWeek;
 		this.name = name;
 		this.mode = mode;
-		this.with = with;
+		this.client = client;
+		this.vendor = vendor;
 		this.round = round;
-		this.isRecording = isRecording;
+		this.recording = recording;
+		this.isCancelled = isCancelled;
+	}
+
+	public LocalDate getInterviewLocalDate() {
+		return interviewLocalDate;
+	}
+
+	public void setInterviewLocalDate(LocalDate interviewLocalDate) {
+		this.interviewLocalDate = interviewLocalDate;
+	}
+
+	public String getInterviewDate() {
+		return interviewDate;
+	}
+
+	public void setInterviewDate(String interviewDate) {
+		this.interviewDate = interviewDate;
 	}
 
 	public Integer getId() {
@@ -50,27 +78,19 @@ public class InterviewInfo {
 		this.id = id;
 	}
 
-	public LocalDate getDate() {
-		return date;
-	}
-
-	public void setDate(LocalDate date) {
-		this.date = date;
-	}
-
-	public LocalDateTime getStartTime() {
+	public Time getStartTime() {
 		return startTime;
 	}
 
-	public void setStartTime(LocalDateTime startTime) {
+	public void setStartTime(Time startTime) {
 		this.startTime = startTime;
 	}
 
-	public LocalDateTime getEndTime() {
+	public Time getEndTime() {
 		return endTime;
 	}
 
-	public void setEndTime(LocalDateTime endTime) {
+	public void setEndTime(Time endTime) {
 		this.endTime = endTime;
 	}
 
@@ -90,37 +110,77 @@ public class InterviewInfo {
 		this.mode = mode;
 	}
 
-	public String getWith() {
-		return with;
+	public String getClient() {
+		return client;
 	}
 
-	public void setWith(String with) {
-		this.with = with;
+	public void setClient(String client) {
+		this.client = client;
 	}
 
-	public Byte getRound() {
+	public String getVendor() {
+		return vendor;
+	}
+
+	public void setVendor(String vendor) {
+		this.vendor = vendor;
+	}
+
+	public int getRound() {
 		return round;
 	}
 
-	public void setRound(Byte round) {
+	public void setRound(int round) {
 		this.round = round;
 	}
 
-	public boolean isRecording() {
-		return isRecording;
+	public boolean getRecording() {
+		return recording;
 	}
 
-	public void setRecording(boolean isRecording) {
-		this.isRecording = isRecording;
+	public void setRecording(boolean recording) {
+		this.recording = recording;
+	}
+
+	public boolean isCancelled() {
+		return isCancelled;
+	}
+
+	public void setCancelled(boolean isCancelled) {
+		this.isCancelled = isCancelled;
+	}
+
+	public DayOfWeek getDayOfWeek() {
+		return getInterviewLocalDate().getDayOfWeek();
+	}
+
+	public void setDayOfWeek(DayOfWeek dayOfWeek) {
+		this.dayOfWeek = dayOfWeek;
+	}
+
+	public String getStartTimeText() {
+		return startTimeText;
+	}
+
+	public void setStartTimeText(String startTimeText) {
+		this.startTimeText = startTimeText;
+	}
+
+	public String getEndTimeText() {
+		return endTimeText;
+	}
+
+	public void setEndTimeText(String endTimeText) {
+		this.endTimeText = endTimeText;
 	}
 
 	@Override
 	public String toString() {
-		return "InterviewInfo [id=" + id + ", date=" + date + ", startTime=" + startTime + ", endTime=" + endTime
-				+ ", name=" + name + ", mode=" + mode + ", with=" + with + ", round=" + round + ", isRecording="
-				+ isRecording + "]";
+		return "InterviewInfo [id=" + id + ", interviewLocalDate=" + interviewLocalDate + ", interviewDate="
+				+ interviewDate + ", startTime=" + startTime + ", endTime=" + endTime + ", startTimeText="
+				+ startTimeText + ", endTimeText=" + endTimeText + ", dayOfWeek=" + dayOfWeek + ", name=" + name
+				+ ", mode=" + mode + ", client=" + client + ", vendor=" + vendor + ", round=" + round + ", recording="
+				+ recording + ", isCancelled=" + isCancelled + "]";
 	}
-	
-	
 
 }
